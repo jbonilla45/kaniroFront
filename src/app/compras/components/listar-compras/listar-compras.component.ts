@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Compra } from '../../models/Compra';
+import { ComprasService } from '../../services/compras.service';
 
 @Component({
   selector: 'app-listar-compras',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listar-compras.component.css']
 })
 export class ListarComprasComponent implements OnInit {
+  listaCompras: Compra []=[];
 
-  constructor() { }
+  constructor(private _compraService: ComprasService) { }
 
   ngOnInit(): void {
+    this.obtenerCompras();
+  }
+
+  obtenerCompras() {
+    this._compraService.getCompras().subscribe(data =>{
+      console.log(data);
+      this.listaCompras=data;
+    }, error => {
+      console.log(error);
+    })
   }
 
 }

@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
+
 import { CrearComprasComponent } from './compras/components/crear-compras/crear-compras.component';
 import { ListarComprasComponent } from './compras/components/listar-compras/listar-compras.component';
 import { CrearCostosComponent } from './costos/components/crear-costos/crear-costos.component';
@@ -27,7 +29,8 @@ import { ListarVentasComponent } from './ventas/components/listar-ventas/listar-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
