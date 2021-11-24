@@ -9,7 +9,7 @@ import { ComprasModule } from './compras/compras.module';
 import { CostosModule } from './costos/costos.module';
 import { ProductosModule } from './productos/productos.module';
 import { VentasModule } from './ventas/ventas.module';
-import { HomeComponent } from './home/components/home/home.component';
+import { HomeModule } from './home/home.module';
 
 
 
@@ -22,7 +22,7 @@ import { HomeComponent } from './home/components/home/home.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HomeComponent,
+    HomeModule,
     ComprasModule,
     CostosModule,
     ProductosModule,

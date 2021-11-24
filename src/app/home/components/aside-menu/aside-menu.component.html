@@ -1,6 +1,6 @@
-<aside class="offcanvas offcanvas-start" tabindex="-1" id="aside-menu" aria-labelledby="dashboard">
+<aside class="offcanvas offcanvas-start" tabindex="-1" id="aside-menu" aria-labelledby="aside-menu">
     <header class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Dashboard</h5>
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menú</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </header>
     <section class="offcanvas-body">
@@ -10,9 +10,9 @@
                     data-bs-toggle="dropdown">
                     {{ option.nombre }}
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuProductos">
-                    <li><a class="dropdown-item" href="#">Nuevo</a></li>
-                    <li><a class="dropdown-item" href="#">Consultar</a></li>
+                <ul class="dropdown-menu" aria-labelledby="dropdown-[option.nombre]">
+                    <li><a class="dropdown-item" href="#">Listar</a></li>
+                    <li><a class="dropdown-item" href="#">Crear</a></li>
                     <li><a class="dropdown-item" href="#">Editar</a></li>
                     <li><a class="dropdown-item" href="#">Eliminar</a></li>
                 </ul>
