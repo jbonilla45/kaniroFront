@@ -1,22 +1,9 @@
-<aside class="offcanvas offcanvas-start" tabindex="-1" id="aside-menu" aria-labelledby="aside-menu">
-    <header class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menú</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </header>
-    <section class="offcanvas-body">
-        <div class="dropdown mt-3">
-            <div *ngFor="let option of options">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuProductos"
-                    data-bs-toggle="dropdown">
-                    {{ option.nombre }}
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdown-[option.nombre]">
-                    <li><a class="dropdown-item" href="#">Listar</a></li>
-                    <li><a class="dropdown-item" href="#">Crear</a></li>
-                    <li><a class="dropdown-item" href="#">Editar</a></li>
-                    <li><a class="dropdown-item" href="#">Eliminar</a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<aside class="col aside-menu" id="aside-menu">
+    <ul class="nav justify-content-evenly">
+        <li class="nav-item" *ngFor="let option of options">
+            <a class="nav-link menu-link" routerLink="{{ option.route }}">
+                {{ option.name }}
+            </a>
+        </li>
+    </ul>
 </aside>

@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { AsideMenuComponent } from './components/aside-menu/aside-menu.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { StartComponent } from './components/start/start.component';
 
 
 
@@ -12,7 +13,8 @@ import { LayoutComponent } from './components/layout/layout.component';
   declarations: [
     HeaderComponent,
     AsideMenuComponent,
-    LayoutComponent
+    LayoutComponent,
+    StartComponent
   ],
   imports: [
     CommonModule,

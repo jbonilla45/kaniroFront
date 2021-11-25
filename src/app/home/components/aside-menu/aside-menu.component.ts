@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./aside-menu.component.css']
 })
 export class AsideMenuComponent implements OnInit {
-  options: { nombre: string }[] = [
-    { nombre: "Productos" },
-    { nombre: "Compras" },
-    { nombre: "Costos" },
-    { nombre: "Ventas" },
+  options: { name: string, route: string }[] = [
+    { name: "Productos", route: '/productos' },
+    { name: "Compras", route: '/compras' },
+    { name: "Costos", route: '/costos' },
+    { name: "Ventas", route: '/ventas' },
   ];
   constructor() { }
 
