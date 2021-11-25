@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 import { ListarCostosComponent } from './components/listar-costos/listar-costos.component';
 import { CrearCostosComponent } from './components/crear-costos/crear-costos.component';
 
@@ -11,7 +13,12 @@ import { CrearCostosComponent } from './components/crear-costos/crear-costos.com
     CrearCostosComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
+  ],
+  exports: [
+    ListarCostosComponent,
+    CrearCostosComponent
   ]
 })
 export class CostosModule { }

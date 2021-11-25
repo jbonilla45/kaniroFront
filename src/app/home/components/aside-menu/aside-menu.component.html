@@ -1,0 +1,9 @@
+<aside class="col aside-menu" id="aside-menu">
+    <ul class="nav justify-content-evenly">
+        <li class="nav-item" *ngFor="let option of options">
+            <a class="nav-link menu-link" routerLink="{{ option.route }}">
+                {{ option.name }}
+            </a>
+        </li>
+    </ul>
+</aside>
