@@ -1,0 +1,10 @@
+.hero {
+    height: 30vh;
+    background-position: 0 -250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h2 {
+    font-family: var(--font-title);
+}
