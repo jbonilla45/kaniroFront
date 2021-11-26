@@ -17,7 +17,8 @@
                         <th>Descripción</th>
                         <th>Categoria</th>
                         <th>Cantidad</th>
-                        <th>Valor</th>
+                        <th>Valor Unitario</th>
+                        <th>Valor Total</th>
                         <th>Acciones</th>
                     </tr>
                     <tr *ngFor="let compra of listaCompras">
@@ -27,9 +28,10 @@
                         <td>{{compra.categoria}}</td>
                         <td>{{compra.cantidad}}</td>
                         <td>{{compra.valor}}</td>
+                        <td>{{compra.valor*compra.cantidad}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <button class="btn btn-secondary m-1" ng-click="mostrarFormActualizar(compra)"
+                                <button class="btn btn-secondary m-1" [routerLink]="['/editar-compra',compra._id]"
                                     type="button" role="button">
                                     <i class="fas fa-edit"></i>
                                 </button>

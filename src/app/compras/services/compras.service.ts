@@ -22,4 +22,12 @@ export class ComprasService {
   eliminarCompra(id: string): Observable<any> {
     return this.http.delete(this.url + id);
   }
+
+  obtenerCompra(id: string): Observable<any> {
+    return this.http.get(this.url + id);
+  }
+
+  editarCompra(id: string, compra: Compra): Observable<any> {
+    return this.http.put(this.url + id, compra);
+  }
 }
