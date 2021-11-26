@@ -1,5 +1,41 @@
-<p>este es el componente crear-productos works!</p>
-
-<a routerLink="/productos" class="btn btn-dark btn-block">
-    <i class="fas fa-arrow-left"></i> Regresar
-</a>
+<section class="content-fluid justify-content-center m-3" style="text-align: start">
+    <h4 class="section-title">Registro de productos</h4>
+    <form ngNativeValidate (submit)="guardarProducto()">
+        <article class="row">
+            <div class="mb-3 col-sm-6">
+                <label for="nombre" class="form-label form-control-sm mb-0">Nombre</label>
+                <input type="text" class="form-control form-control-sm col-sm-12" id="nombre" name="nombre"
+                    [(ngModel)]="nombre" value="" required>
+            </div>
+            <div class="mb-3 col-sm-6">
+                <label for="tipo" class="form-label form-control-sm mb-0">Tipo</label>
+                <input type="text" class="form-control form-control-sm col-sm-12" id="tipo" name="tipo"
+                    [(ngModel)]="tipo" value="" required>
+            </div>
+        </article>
+        <article class="row">
+            <div class="mb-3 col-sm-3">
+                <label for="cantidad" class="form-label form-control-sm mb-0">Cantidad</label>
+                <input type="number" class="form-control form-control-sm col-sm-12" id="cantidad" name="cantidad"
+                    [(ngModel)]="cantidad" value="" required>
+            </div>
+            <div class="mb-3 col-sm-6">
+                <label for="descripcion" class="form-label form-control-sm mb-0">Descripción</label>
+                <input type="text" class="form-control form-control-sm col-sm-12" id="descripcion" name="descripcion"
+                    [(ngModel)]="descripcion" value="" required>
+            </div>
+            <div class="mb-3 col-sm-3">
+                <label for="precioUnitario" class="form-label form-control-sm mb-0">Precio</label>
+                <input type="number" class="form-control form-control-sm col-sm-12" id="precioUnitario"
+                    name="precioUnitario" [(ngModel)]="precioUnitario" min="1" value="" required>
+            </div>
+        </article>
+        <aside class="d-md-flex gap-2 justify-content-end">
+            <input type="submit" class="btn btn-primary" value="Guardar">
+            <input type="reset" class="btn btn-secondary" routerLink="/productos" value="Cancelar">
+        </aside>
+    </form>
+    <a routerLink="/productos" class="btn btn-dark btn-block">
+        <i class="fas fa-arrow-left"></i> Regresar
+    </a>
+</section>
