@@ -20,7 +20,7 @@
                         <th>Acciones</th>
                     </tr>
                     <tr *ngFor="let compra of listaCompras">
-                        <td *ngHide="true">{{compra._id}}</td>
+                        <td [hidden]="true">{{compra._id}}</td>
                         <td>{{compra.fechaRegistro}}</td>
                         <td>{{compra.descripcion}}</td>
                         <td>{{compra.categoria}}</td>
@@ -31,7 +31,7 @@
                                     type="button" role="button">
                                     <i class="fas fa-edit"></i> Editar
                                 </button>
-                                <a class="btn btn-danger m-1" ng-click="abrirModal(compra.id)">
+                                <a class="btn btn-danger m-1" (click)="eliminarCompra(compra._id)">
                                     <i class="fas fa-trash"></i> Eliminar
                                 </a>
                             </div>
