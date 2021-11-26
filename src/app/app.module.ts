@@ -10,7 +10,8 @@ import { CostosModule } from './costos/costos.module';
 import { ProductosModule } from './productos/productos.module';
 import { VentasModule } from './ventas/ventas.module';
 import { HomeModule } from './home/home.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import{ ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -28,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ComprasModule,
     CostosModule,
     ProductosModule,
-    VentasModule
+    VentasModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

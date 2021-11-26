@@ -1,3 +1,53 @@
-<p>este es el componente listar-productos works!</p>
-
-<button class="btn btn-primary" routerLink="/crear-productos">crear</button>
+<section class="content-fluid justify-content-center m-3" style="text-align: center">
+    <div class="d-flex justify-content-end btn-container">
+        <a routerLink="/crear-producto" class="d-block btn btn-primary m-1" type="button" role="button">
+            <i class="fas fa-plus-circle"></i>
+            nuevo
+        </a>
+    </div>
+    <article class="card mb-5">
+        <header class="card-header">
+            <h4 class="title-list">Listado productos</h4>
+        </header>
+        <table class="table table-striped table-borderless container-fluid">
+            <tr>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Cantidad</th>
+                <th>Descripcioón</th>
+                <th>Precio</th>
+            </tr>
+            <tr *ngFor="let producto of listaProductos">
+                <td *ngHide="true">{{producto._id}}</td>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.tipo}}</td>
+                <td>{{producto.cantidad}}</td>
+                <td>{{producto.descripcion}}</td>
+                <td>${{producto.precioUnitario}}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button class="btn btn-secondary m-1" ng-click="mostrarFormActualizar{producto)" type="button"
+                            role="button">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <a class="btn btn-danger m-1" ng-click="abrirModal{producto.id)">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <h5 *ngIf="listaProductos.length==0">No hay items para mostrar</h5>
+    </article>
+</section>
+<aside class="d-flex justify-content-center">
+    <div class=" col-md-3card text-center info-amount-items text-white mb-3">
+        <div class="card-body">
+            <h3>Total productos</h3>
+            <h4 class="display-4">
+                <i class="fas fa-boxes"></i>
+                {{listaProductos.length}}
+            </h4>
+        </div>
+    </div>
+</aside>
