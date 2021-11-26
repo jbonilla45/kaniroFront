@@ -10,6 +10,7 @@ import { CostosModule } from './costos/costos.module';
 import { ProductosModule } from './productos/productos.module';
 import { VentasModule } from './ventas/ventas.module';
 import { HomeModule } from './home/home.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,6 +23,7 @@ import { HomeModule } from './home/home.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     HomeModule,
     ComprasModule,
     CostosModule,

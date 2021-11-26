@@ -6,6 +6,7 @@ import { ListarComprasComponent } from './components/listar-compras/listar-compr
 import { CrearComprasComponent } from './components/crear-compras/crear-compras.component';
 
 import { ComprasService } from './services/compras.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ComprasService } from './services/compras.service';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   providers: [
     ComprasService
