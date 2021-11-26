@@ -20,6 +20,7 @@ export class CrearComprasComponent implements OnInit {
       descripcion: ['', Validators.required],
       valor: ['', Validators.required],
       categoria: ['', Validators.required],
+      cantidad:['', Validators.required]
     })
   }
 
@@ -31,7 +32,8 @@ export class CrearComprasComponent implements OnInit {
     const COMPRA : Compra = {
       descripcion : this.comprasForm.get('descripcion')?.value,
       valor : this.comprasForm.get('valor')?.value,
-      categoria: this.comprasForm.get('categoria')?.value
+      categoria: this.comprasForm.get('categoria')?.value,
+      cantidad: this.comprasForm.get('cantidad')?.value
     }
 
     console.log(COMPRA)

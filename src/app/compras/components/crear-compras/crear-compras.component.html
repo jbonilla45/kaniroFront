@@ -24,6 +24,14 @@
                             </div>
                         </div>
                         <div class="form-floating mt-1">
+                            <input type="text" class="form-control" id="cantidad" formControlName="cantidad">
+                            <label for="cantidad">Cantidad</label>
+                            <div class="text-danger" *ngIf="comprasForm.get('cantidad')?.hasError('required')
+                             && comprasForm.get('cantidad')?.touched">
+                                <span>La cantidad de items <strong>es obligatoria</strong></span>
+                            </div>
+                        </div>
+                        <div class="form-floating mt-1">
                             <input type="text" class="form-control" id="valor" formControlName="valor">
                             <label for="valor">Valor</label>
                             <div class="text-danger" *ngIf="comprasForm.get('valor')?.hasError('required')
