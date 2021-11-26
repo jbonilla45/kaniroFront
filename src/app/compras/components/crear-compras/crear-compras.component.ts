@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Compra } from '../../models/Compra';
 import { ComprasService } from '../../services/compras.service';
 
@@ -14,13 +13,13 @@ export class CrearComprasComponent implements OnInit {
   comprasForm: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private router: Router,
-              private _comprasService : ComprasService) {
+    private router: Router,
+    private _comprasService: ComprasService) {
     this.comprasForm = this.fb.group({
       descripcion: ['', Validators.required],
       valor: ['', Validators.required],
       categoria: ['', Validators.required],
-      cantidad:['', Validators.required]
+      cantidad: ['', Validators.required]
     })
   }
 
@@ -28,23 +27,21 @@ export class CrearComprasComponent implements OnInit {
   }
 
   guardarCompra() {
-    
-    const COMPRA : Compra = {
-      descripcion : this.comprasForm.get('descripcion')?.value,
-      valor : this.comprasForm.get('valor')?.value,
+
+    const COMPRA: Compra = {
+      descripcion: this.comprasForm.get('descripcion')?.value,
+      valor: this.comprasForm.get('valor')?.value,
       categoria: this.comprasForm.get('categoria')?.value,
       cantidad: this.comprasForm.get('cantidad')?.value
     }
 
     console.log(COMPRA)
-    this._comprasService.guardarCompra(COMPRA).subscribe(data =>{
+    this._comprasService.guardarCompra(COMPRA).subscribe(data => {
       this.router.navigate(['/compras'])
-    }, error =>{
+    }, error => {
       console.log(error);
       this.comprasForm.reset();
     })
-    
-  }
 
-  
+  }
 }
