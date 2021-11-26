@@ -1,0 +1,18 @@
+:host {
+    /* host targets selector: 'home' */
+    display: block;
+    left: 0;
+    width: auto;   
+    height: 100%;
+}
+
+.aside-menu {
+    height: auto;
+    width: auto;
+    background-color: var(--gray);
+}
+
+.aside-menu ul li a {
+    color: whitesmoke;
+    text-transform: uppercase;
+}

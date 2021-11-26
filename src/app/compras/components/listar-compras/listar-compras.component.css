@@ -1,0 +1,44 @@
+.card, .card-header {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.table-title {
+    color: blueviolet;
+    text-transform: uppercase;
+}
+
+th {
+    color: blueviolet;
+}
+
+.btn {
+    border-radius: 10px;
+}
+.btn:hover {
+    box-shadow: 0 3px 3px #000;
+    transition: all ease-in-out 0.5;
+}
+
+.btn-primary {
+    background-color: #85CFBE;
+    border-color: #85CFBE;
+    color: whitesmoke;
+    text-transform: uppercase;
+}
+
+.btn-secondary {
+    background-color: #E5BA0B;
+    border-color: #E5BA0B;
+    color: whitesmoke,
+}
+
+.btn-danger {
+    background-color: #E811A3;
+    border-color: #E811A3;
+    color: whitesmoke
+}
+
+.info-amount-items {
+    background-color: #E5BA0B;
+}
