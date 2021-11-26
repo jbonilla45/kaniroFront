@@ -52,6 +52,54 @@
                     <i class="fas fa-cash-register"></i> {{listaCompras.length}}
                 </h4>
             </div>
+<section class="content-fluid justify-content-center m-3" style="text-align: center">
+    <div class="d-flex justify-content-end btn-container">
+        <a routerLink="/crear-compra" class="d-block btn btn-primary m-1" type="button" role="button">
+            <i class="fas fa-plus-circle"></i>
+            nuevo
+        </a>
+    </div>
+    <article class="card mb-5">
+        <header class="card-header">
+            <h4 class="title-list">Listado Compras</h4>
+        </header>
+        <table class="table table-striped table-borderless container-fluid">
+            <tr>
+                <th>Fecha Registro</th>
+                <th>Descripción</th>
+                <th>Categoria</th>
+                <th>Valor</th>
+                <th>Acciones</th>
+            </tr>
+            <tr *ngFor="let compra of listaCompras">
+                <td *ngHide="true">{{compra._id}}</td>
+                <td>{{compra.fechaRegistro}}</td>
+                <td>{{compra.descripcion}}</td>
+                <td>{{compra.categoria}}</td>
+                <td>${{compra.valor}}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button class="btn btn-secondary m-1" ng-click="mostrarFormActualizar(compra)" type="button"
+                            role="button">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <a class="btn btn-danger m-1" ng-click="abrirModal(compra.id)">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <h5 *ngIf="listaCompras.length==0">No hay items para mostrar</h5>
+    </article>
+</section>
+<aside class="d-flex justify-content-center">
+    <div class=" col-md-3card text-center info-amount-items text-white mb-3">
+        <div class="card-body">
+            <h3>Total artículos <br /> comprados</h3>
+            <h4 class="display-4">
+                <i class="fas fa-cash-register"></i> {{listaCompras.length}}
+            </h4>
         </div>
     </aside>
 </div>

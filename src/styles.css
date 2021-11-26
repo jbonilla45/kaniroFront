@@ -1,16 +1,18 @@
+/* Variables */
 :root {
     /* Colors */
-    --purple: #663A82;
-    --green: #85CFBE;
-    --fuchsia: #E811A3;
-    --yellow: #E5BA0B;
+    --main: #8a2be2;
+    --green:#21efd7;
+    --red: #ef5421;
+    --yellow: #fcb70a;
+    --blue: #17affc;
     --gray: #707070;
-    --ligth-gray: #9E9E9E;
+    --light-gray: #9E9E9E;
     --white: #faf0e6;
     /* Fonts */
-
+    --font-title: 'Roboto Mono', monospace;
+    --font-main: 'Roboto', sans-serif;
 }
-
 
 html {
     height: 100%;
@@ -22,47 +24,61 @@ body {
     overflow-x: hidden;
     position: relative;
     width: 100%;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-main);
 }
 
 .card, .card-header {
-    background-color: transparent;
-    border-color: transparent;
+    background-color: transparent !important;
+    border-color: transparent !important;
 }
 
-.table-title {
-    color: blueviolet;
-
+.title-list, .section-title {
+    color: var(--main);
+    font-weight: bold;
     text-transform: uppercase;
 }
 
-th {
-    color: blueviolet;
+.table > tr > th, label {
+    color: var(--main) !important;
+}
+
+label {
+    text-align: left;
 }
 
 .btn {
     border-radius: 10px;
-}
-.btn:hover {
-    box-shadow: 0 3px 3px #000;
-    transition: all ease-in-out 0.5;
-}
-
-.btn-primary {
-    background-color: var(--green);
-    border-color: var(--green);
-    color: whitesmoke;
     text-transform: uppercase;
 }
+.btn:hover {
+    box-shadow: 0 3px 3px var(--gray) !important;
+    transition: all ease-in-out 0.5 !important;
+}
 
-.btn-secondary {
-    background-color: var(--yellow);
-    border-color: var(--yellow);
+.btn-primary, .btn-primary:hover {
+    background-color: var(--green) !important;
+    border-color: var(--green) !important;
+    color: whitesmoke !important;
+}
+
+.btn-secondary, .btn-secondary:hover {
+    background-color: var(--yellow) !important;
+    border-color: var(--yellow) !important;
     color: whitesmoke,
 }
 
-.btn-danger {
-    background-color: var(--fuchsia);
-    border-color: var(--fuchsia);
-    color: whitesmoke
+.btn-danger,.btn-danger:hover {
+    background-color: var(--red) !important;
+    border-color: var(--red) !important;
+    color: whitesmoke !important
+}
+
+.btn-dark, .btn-dark:hover {
+    background-color: var(--gray) !important;
+    border-color: var(--gray) !important;
+    color: whitesmoke !important
+}
+
+.info-amount-items {
+    background-color: var(--blue);
 }

@@ -13,13 +13,13 @@ import { ListarVentasComponent } from './ventas/components/listar-ventas/listar-
 const routes: Routes = [
   { path: '', component: StartComponent },
   { path: 'compras', component: ListarComprasComponent },
-  { path: 'crear-compras', component: CrearComprasComponent },
+  { path: 'crear-compra', component: CrearComprasComponent },
   { path: 'ventas', component: ListarVentasComponent },
   { path: 'crear-ventas', component: CrearVentasComponent },
   { path: 'productos', component: ListarProductosComponent },
-  { path: 'crear-productos', component: CrearProductosComponent },
+  { path: 'crear-producto', component: CrearProductosComponent },
   { path: 'costos', component: ListarCostosComponent },
-  { path: 'crear-costos', component: CrearCostosComponent }
+  { path: 'crear-costo', component: CrearCostosComponent }
 ];
 
 @NgModule({
