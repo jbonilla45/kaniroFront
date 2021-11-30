@@ -54,11 +54,18 @@ label {
     box-shadow: 0 3px 3px var(--gray) !important;
     transition: all ease-in-out 0.5 !important;
 }
+.btn:disabled {
+    background-color: whitesmoke !important;
+    color: var(--green) !important;
+    border-color: var(--green) !important;
+    cursor: progress !important;
+}
 
-.btn-primary, .btn-primary:hover {
+.btn-primary, .btn-primary:hover, .btn-success, .btn-success:hover {
     background-color: var(--green) !important;
     border-color: var(--green) !important;
     color: whitesmoke !important;
+    transition: all ease-in-out 0.5s;
 }
 
 .btn-secondary, .btn-secondary:hover {
@@ -73,7 +80,7 @@ label {
     color: whitesmoke !important
 }
 
-.btn-dark, .btn-dark:hover {
+.btn-dark, .btn-dark:hover, .btn-outline-dark, .btn-outline-dark:hover {
     background-color: var(--gray) !important;
     border-color: var(--gray) !important;
     color: whitesmoke !important
