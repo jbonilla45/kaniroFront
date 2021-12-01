@@ -8,7 +8,7 @@ import { Producto } from '../models/Producto';
 })
 export class ProductosService {
 
-  URL = 'http://localhost:3000/api/productos/'
+  URL = 'https://kaniro-api.herokuapp.com/api/productos/'
 
   constructor(private http: HttpClient) { }
 
