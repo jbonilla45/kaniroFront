@@ -10,56 +10,13 @@
                     <div class="form-floating mt-1">
                         <input type="text" class="form-control" id="vendedor" formControlName="vendedor">
                         <label for="vendedor">Nombre del vendedor</label>
-                        <div class="text-danger" *ngIf="ventasForm.get('vendedor')?.hasError('required')
-                             && pForm.get('vendedor')?.touched">
+                        <div class="text-danger" *ngIf="ventaForm.get('vendedor')?.hasError('required')
+                             && ventaForm.get('vendedor')?.touched">
                             <span>El nombre del / la vendedor(a) <strong>es obligatorio</strong></span>
                         </div>
                     </div>
-                    <div class="form-floating mt-1">
-                        <select class="form-select" aria-label="Default select example" id="categoria"
-                            formControlName="categoria" ">
-                            <option selected>Lista de productos</option>
-                            <!-- Llamando productos -->
-                            <option 
-                            <!-- *ngFor=" let producto of listaProductos" value=[[ producto.id ]] -->
-                            >
-                            <!-- {{producto.nombre}} -->
-                            </option>
-                            <!-- Fin bucle -->
-                        </select>
-                        <label for="categoria">Producto</label>
-                        <div class="text-danger" *ngIf="ventaForm.get('producto')?.hasError('required')
-                         && ventasForm.get('producto')?.touched">
-                            <span>Al menos debe haber un producto en la venta</strong></span>
-                        </div>
-                    </div>
-                    <div class="form-floating mt-1">
-                        <input type="number" class="form-control" id="cantidad" formControlName="cantidad">
-                        <label for="cantidad">Cantidad</label>
-                        <div class="text-danger" *ngIf="ventaForm.get('cantidad')?.hasError('required')
-                             && ventaForm.get('cantidad')?.touched">
-                            <span>La cantidad producida <strong>es obligatoria</strong></span>
-
-                        </div>
-                    </div>
-                    <div class="form-floating mt-1">
-                        <input type="text" class="form-control" id="descripcion" formControlName="descripcion">
-                        <label for="descripcion">Descripción</label>
-                        <div class="text-danger" *ngIf="ventaForm.get('descripcion')?.hasError('required')
-                             && ventaForm.get('descripcion')?.touched">
-                            <span>La descripción <strong>es obligatoria</strong></span>
-                        </div>
-                    </div>
-                    <div class="form-floating mt-1">
-                        <input type="number" class="form-control" id="precio-unitario" formControlName="precioUnitario">
-                        <label for="precio-unitario">Precio unidad</label>
-                        <div class="text-danger" *ngIf="ventaForm.get('precioUnitario')?.hasError('required')
-                             && ventaForm.get('precioUnitario')?.touched">
-                            <span>El precio por unidad<strong>es obligatoria</strong></span>
-                        </div>
-                    </div>
                 </fieldset>
-                <aside>
+                <footer>
                     <div class="container mb-3">
                         <div class="row">
                             <div class="d-grid gap-2 col-6">
@@ -68,14 +25,51 @@
                                 </a>
                             </div>
                             <div class="d-grid gap-2 col-6">
-                                <button type="submit button" class="btn btn-success" [disabled]="ventaForm.invalid">
-                                    <i class="fas fa-save"></i> Guardar
+                                <!-- Llamar modal para listar productos -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#modalProductoVenta">
+                                    Crear nueva venta
                                 </button>
                             </div>
                         </div>
                     </div>
-                </aside>
+                </footer>
             </form>
         </article>
+
+        <!-- Modal con productos para venta -->
+        <aside class="modal fade" id="modalProductoVenta" tabindex="-1" aria-labelledby="modalProductoVenta"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <header class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </header>
+                    <div class="modal-body">
+                        <table>
+                            <thead>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                            </thead>
+                        </table>
+                        <tr>
+                            <!-- Iteracion lista de productos -->
+                            <td *>
+
+                            </td>
+                            <!-- Registro cantidad -->
+                            <td>
+                                <input type="number">
+                            </td>
+                        </tr>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Guardar compra</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
     </div>
 </section>
