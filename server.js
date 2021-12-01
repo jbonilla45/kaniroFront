@@ -3,11 +3,11 @@ const express = require('express');
 const app = express();
 
 // Serve static files
-app.use(express.static(__dirname + '/dist/KANIROFRONT'));
+app.use(express.static(__dirname + '/dist/kaniroFront'));
 
 // Send all requests to index.html
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/dist/KANIROFRONT/index.html'));
+  res.sendFile(path.join(__dirname + '/dist/kaniroFront/index.html'));
 });
 
 // default Heroku port
