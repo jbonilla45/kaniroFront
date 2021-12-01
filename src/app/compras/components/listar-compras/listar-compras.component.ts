@@ -10,11 +10,19 @@ import { ComprasService } from '../../services/compras.service';
 })
 export class ListarComprasComponent implements OnInit {
   listaCompras: Compra[] = [];
+  total: number = 0;
 
   constructor(private _compraService: ComprasService) { }
 
   ngOnInit(): void {
     this.obtenerCompras();
+    
+    for(var i = 0; i < this.listaCompras.length; i++){
+      var compra = this.listaCompras[i];
+      this.total += (compra.cantidad * compra.valor);
+  }
+  console.log("total",this.total);
+    
   }
 
   obtenerCompras() {
@@ -24,14 +32,20 @@ export class ListarComprasComponent implements OnInit {
     }, error => {
       console.log(error);
     })
+    
+    
+
+    
   }
 
   eliminarCompra(id: any) {
     this._compraService.eliminarCompra(id).subscribe(data => {
       this.obtenerCompras();
-    }, error =>{
+    }, error => {
       console.log(error);
     })
   }
+
+
 
 }
