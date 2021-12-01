@@ -1,53 +1,79 @@
-<section class="content-fluid justify-content-center m-3" style="text-align: center">
-    <div class="d-flex justify-content-end btn-container">
-        <a routerLink="/crear-producto" class="d-block btn btn-primary m-1" type="button" role="button">
-            <i class="fas fa-plus-circle"></i>
-            nuevo
-        </a>
-    </div>
-    <article class="card mb-5">
-        <header class="card-header">
-            <h4 class="title-list">Listado productos</h4>
-        </header>
-        <table class="table table-striped table-borderless container-fluid">
-            <tr>
-                <th>Nombre</th>
-                <th>Tipo</th>
-                <th>Cantidad</th>
-                <th>Descripcioón</th>
-                <th>Precio</th>
-            </tr>
-            <tr *ngFor="let producto of listaProductos">
-                <td *ngHide="true">{{producto._id}}</td>
-                <td>{{producto.nombre}}</td>
-                <td>{{producto.tipo}}</td>
-                <td>{{producto.cantidad}}</td>
-                <td>{{producto.descripcion}}</td>
-                <td>${{producto.precioUnitario}}</td>
-                <td>
-                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                        <button class="btn btn-secondary m-1" ng-click="mostrarFormActualizar{producto)" type="button"
-                            role="button">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <a class="btn btn-danger m-1" ng-click="abrirModal{producto.id)">
-                            <i class="fas fa-trash"></i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <h5 *ngIf="listaProductos.length==0">No hay items para mostrar</h5>
-    </article>
-</section>
-<aside class="d-flex justify-content-center">
-    <div class=" col-md-3card text-center info-amount-items text-white mb-3">
-        <div class="card-body">
-            <h3>Total productos</h3>
-            <h4 class="display-4">
-                <i class="fas fa-boxes"></i>
-                {{listaProductos.length}}
-            </h4>
+<div class="container">
+    <section class="col-12 m-3" style="text-align: center">
+        <div class="d-flex justify-content-end btn-container">
+            <a routerLink="/crear-producto" class="d-block btn btn-primary m-1" type="button" role="button">
+                <i class="fas fa-plus-circle"></i>
+                nuevo
+            </a>
+        </div>
+        <article class="card mb-5">
+            <header class="card-header">
+                <h4 class="title-list">Listado productos</h4>
+            </header>
+            <table class="table table-striped table-borderless container-fluid">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Cantidad</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                </tr>
+                <tbody>
+                    <tr *ngFor="let producto of listaProductos">
+                        <td [hidden]="true">{{producto._id}}</td>
+                        <td>{{producto.nombre}}</td>
+                        <td>{{producto.categoria}}</td>
+                        <td>{{producto.cantidad}}</td>
+                        <td>{{producto.descripcion}}</td>
+                        <td>{{producto.precioUnitario | currency: 'USD'}}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <button class="btn btn-secondary m-1" [routerLink]="['/editar-producto', producto._id]"
+                                    type="button" role="button">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <a class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#modalEliminar"
+                                    (click)="setProductoEliminar(producto._id, producto.nombre)">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h5 *ngIf="listaProductos.length==0">No hay items para mostrar</h5>
+        </article>
+    </section>
+    <!-- Información productos -->
+    <aside class="d-flex justify-content-center">
+        <div class=" col-md-3card text-center info-amount-items text-white mb-3">
+            <div class="card-body">
+                <h3>Total productos</h3>
+                <h4 class="display-4">
+                    <i class="fas fa-boxes"></i>
+                    {{listaProductos.length}}
+                </h4>
+            </div>
+        </div>
+    </aside>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modalEliminar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true" data-target="#modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Confirmación</h5>
+            </div>
+            <div class="modal-body">
+                ¿Desea eliminar '{{nombreEliminar}}' de la lista de productos?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="setProductoEliminar(null, '')"
+                    data-bs-dismiss="modal">Cancelar</button>
+                <button #closeModal id="deletebutton" type="button" class="btn btn-danger" (click)="eliminarProducto()"
+                    data-bs-dismiss="modal">Eliminar</button>
+            </div>
         </div>
     </div>
-</aside>
+</div>

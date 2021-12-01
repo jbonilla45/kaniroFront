@@ -1,8 +1,9 @@
-export interface Producto {
+export interface ProductoVenta {
     _id: string | null
     nombre: string
     categoria: string
-    cantidad: number
+    cantidadVenta: number
     descripcion: string
     precioUnitario: number
+    precioTotal: number
 }

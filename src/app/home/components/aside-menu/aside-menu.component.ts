@@ -9,7 +9,7 @@ export class AsideMenuComponent implements OnInit {
   options: { name: string, route: string }[] = [
     { name: "Productos", route: '/productos' },
     { name: "Compras", route: '/compras' },
-    { name: "Costos", route: '/costos' },
+    // { name: "Costos", route: '/costos' },
     { name: "Ventas", route: '/ventas' },
   ];
   constructor() { }

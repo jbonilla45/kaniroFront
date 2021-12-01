@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../models/Producto';
 import { ProductosService } from '../../sevices/productos.service';
-import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-listar-productos',
   templateUrl: './listar-productos.component.html',
   styleUrls: ['./listar-productos.component.css']
 })
+
 export class ListarProductosComponent implements OnInit {
 
   idProductoEliminar: string | null = null
-  nombreProductoEliminar: string = ""
+  nombreEliminar: string = ""
 
   page: number = 1;
   pageSize: number = 10;
@@ -29,19 +31,21 @@ export class ListarProductosComponent implements OnInit {
   cargarProductos() {
     this.productosService.getProductos().subscribe(data => {
       this.listaProductos = data
+      console.log(data);
     })
     this.collectionSize = this.listaProductos.length
   }
 
   setProductoEliminar(id: string | null, nombre: string) {
     this.idProductoEliminar = id == '' ? null : id
-    this.nombreProductoEliminar = nombre
+    this.nombreEliminar = nombre
   }
 
   eliminarProducto() {
     if (this.idProductoEliminar != null) {
       this.productosService.eliminarProducto(this.idProductoEliminar).subscribe(data => {
         console.log('El producto fue eliminado con exito!');
+        this.ngOnInit();
         this.router.navigate(['/productos']);
       }, error => {
         console.log(error);

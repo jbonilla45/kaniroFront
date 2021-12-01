@@ -6,51 +6,54 @@
                 nuevo
             </a>
         </div>
-        <article class="card">
+        <div class="card">
             <header class="card-header">
-                <h4 class="table-title">Listado Compras</h4>
+                <h4 class="title-list">Listado Compras</h4>
             </header>
             <div>
-                <table class="table table-striped table-borderless table-sm container-fluid">
+                <table class="table table-striped table-hover table-borderless table-sm">
                     <tr>
                         <th>Fecha Registro</th>
                         <th>Descripción</th>
                         <th>Categoria</th>
                         <th>Cantidad</th>
-                        <th>Valor</th>
+                        <th>Valor Unitario</th>
+                        <th>Valor Total</th>
                         <th>Acciones</th>
                     </tr>
-                    <tr *ngFor="let compra of listaCompras">
-                        <td [hidden]="true">{{compra._id}}</td>
-                        <td>{{compra.fechaRegistro}}</td>
-                        <td>{{compra.descripcion}}</td>
-                        <td>{{compra.categoria}}</td>
-                        <td>{{compra.cantidad}}</td>
-                        <td>{{compra.valor}}</td>
-                        <td>
-                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <button class="btn btn-secondary m-1" ng-click="mostrarFormActualizar(compra)"
-                                    type="button" role="button">
-                                    <i class="fas fa-edit"></i> Editar
-                                </button>
-                                <a class="btn btn-danger m-1" (click)="eliminarCompra(compra._id)">
-                                    <i class="fas fa-trash"></i> Eliminar
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr *ngFor="let compra of listaCompras">
+                            <td [hidden]="true">{{compra._id}}</td>
+                            <td>{{compra.fechaRegistro | date: 'short'}}</td>
+                            <td class="text-capitalize">{{compra.descripcion}}</td>
+                            <td>{{compra.categoria}}</td>
+                            <td class="text-end">{{compra.cantidad}}</td>
+                            <td class="text-end">{{compra.valor | currency: 'USD'}}</td>
+                            <td class="text-end">{{compra.valor*compra.cantidad | currency: 'USD'}}</td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                    <button class="btn btn-secondary m-1" [routerLink]="['/editar-compra',compra._id]"
+                                        type="button" role="button">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <a class="btn btn-danger m-1" (click)="eliminarCompra(compra._id)">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
                 <h5 *ngIf="listaCompras.length==0">No hay items para mostrar</h5>
             </div>
-        </article>
+        </div>
     </section>
-    <aside class="d-flex justify-content-center">
-        <div class=" col-md-3card text-center info-amount-items text-white mb-3">
-            <div class="card-body">
-                <h3>Total Registros</h3>
-                <h4 class="display-4">
-                    <i class="fas fa-cash-register"></i> {{listaCompras.length}}
-                </h4>
-            </div>
 
-
+    <div class=" col-md-3card text-center info-amount-items text-white mb-3">
+        <div class="card-body">
+            <h3>Total Registros</h3>
+            <h4 class="display-4">
+                <i class="fas fa-cash-register"></i> {{listaCompras.length}}
+            </h4>
+        </div>
+    </div>
