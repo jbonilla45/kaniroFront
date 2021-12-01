@@ -16,26 +16,22 @@ export class ListarComprasComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerCompras();
-    
-    for(var i = 0; i < this.listaCompras.length; i++){
-      var compra = this.listaCompras[i];
-      this.total += (compra.cantidad * compra.valor);
-  }
-  console.log("total",this.total);
-    
   }
 
   obtenerCompras() {
     this._compraService.getCompras().subscribe(data => {
       console.log(data);
       this.listaCompras = data;
+      //funcion para agregar el total del listado
+      for (var i = 0; i < this.listaCompras.length; i++) {
+        var compra = this.listaCompras[i];
+        this.total += (compra.cantidad * compra.valor);
+      }
+      console.log("total", this.total);
+
     }, error => {
       console.log(error);
     })
-    
-    
-
-    
   }
 
   eliminarCompra(id: any) {
@@ -45,7 +41,4 @@ export class ListarComprasComponent implements OnInit {
       console.log(error);
     })
   }
-
-
-
 }
