@@ -7,7 +7,7 @@ import { Compra } from '../models/Compra';
   providedIn: 'root'
 })
 export class ComprasService {
-  url = 'http://localhost:3000/api/compras/';
+  url = 'https://kaniro-api.herokuapp.com/api/compras/';
 
   constructor(private http: HttpClient) { }
 
