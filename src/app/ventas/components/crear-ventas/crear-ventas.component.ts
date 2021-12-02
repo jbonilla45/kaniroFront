@@ -3,6 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { VentasService } from '../../services/ventas.service';
 import { Venta } from '../../models/Venta';
+import { Producto } from 'src/app/productos/models/Producto';
+import { ProductosService } from 'src/app/productos/sevices/productos.service';
+import { isTemplateExpression } from 'typescript';
+import { ProductoVenta } from '../../models/ProductoVenta';
 
 @Component({
     selector: 'app-crear-ventas',
@@ -16,12 +20,19 @@ export class CrearVentasComponent implements OnInit {
     titulo: string = 'Crear venta';
 
     idVenta: string | null = null
+
+    listaProductos: Producto[] = []
+
+    listaProductosVenta: ProductoVenta[] = []
+
+    cantidadProd: number = 0
+
     // fechaRegistro: Date | undefined = undefined
     // vendedor: string = ""
     // productos: ProductoVenta[] = []
     // valor: number = 0
 
-    constructor(private fb: FormBuilder, private router: Router, private VentasSrv: VentasService, private aRouter: ActivatedRoute) {
+    constructor(private fb: FormBuilder, private router: Router, private VentasSrv: VentasService, private aRouter: ActivatedRoute, private productosService: ProductosService) {
         this.ventaForm = this.fb.group({
             vendedor: ['', Validators.required],
             productos: ['', Validators.required],
@@ -32,11 +43,18 @@ export class CrearVentasComponent implements OnInit {
 
     ngOnInit(): void {
         // this.cargarVenta()
+        this.cargarProductos();
         this.esEditar();
     }
 
-    guardarVenta() {
+    cargarProductos() {
+        this.productosService.getProductos().subscribe(data => {
+            this.listaProductos = data
+            console.log(data);
+        })
+    }
 
+    guardarVenta() {
         const venta: Venta = {
             vendedor: this.ventaForm.get('vendedor')?.value,
             productos: this.ventaForm.get('productos')?.value,

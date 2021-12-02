@@ -1,6 +1,6 @@
 <section class="container mt-3 col-8">
     <div class="row justify-content-center">
-        <article class="card mb-3">
+        <div class="card mb-3">
             <header class="card-header">
                 <h4>{{titulo |titlecase}}</h4>
             </header>
@@ -16,57 +16,79 @@
                         </div>
                     </div>
                 </fieldset>
-                <footer>
-                    <div class="container mb-3">
-                        <div class="row">
-                            <div class="d-grid gap-2 col-6">
-                                <a routerLink="/productos" class="btn btn-outline-dark" type="button">
-                                    <i class="fas fa-arrow-left"></i> Regresar
-                                </a>
-                            </div>
-                            <div class="d-grid gap-2 col-6">
-                                <!-- Llamar modal para listar productos -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#modalProductoVenta">
-                                    Crear nueva venta
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
             </form>
-        </article>
+        </div>
 
+        <article class="card mb-5">
+            <header class="card-header">
+                <h4 class="title-list">Listado productos</h4>
+            </header>
+            <div class="row">
+                <div class="col">
+                    <table class="table table-striped table-borderless container-fluid">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Acción</th>
+                        </tr>
+                        <tbody>
+                            <tr *ngFor="let producto of listaProductos">
+                                <td [hidden]="true">{{producto._id}}</td>
+                                <td>{{producto.nombre}}</td>
+                                <td>{{producto.precioUnitario | currency: 'USD'}}</td>
+                                <td>
+                                    <!-- Llamar modal -->
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-primary">
+                                            <i class="fas fa-plus-circle"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h5 *ngIf="listaProductos.length==0">No hay items para mostrar</h5>
+                </div>
+                <div class="col">
+                    <h4>Venta actual</h4>
+                    <table>
+
+                    </table>
+                </div>
+            </div>
+        </article>
+        <footer>
+            <div class="container mb-3">
+                <div class="row">
+                    <div class="d-grid gap-2 col-6">
+                        <a routerLink="/productos" class="btn btn-outline-dark" type="button">
+                            <i class="fas fa-arrow-left"></i> Regresar
+                        </a>
+                    </div>
+                    <div class="d-grid gap-2 col-6">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#modalProductoVenta">
+                            Crear nueva venta
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <!-- Modal con productos para venta -->
-        <aside class="modal fade" id="modalProductoVenta" tabindex="-1" aria-labelledby="modalProductoVenta"
-            aria-hidden="true">
+        <aside class="modal fade" id="modalCantidad" tabindex="-1" aria-labelledby="modalCantidad" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <header class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Cantidad</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </header>
                     <div class="modal-body">
-                        <table>
-                            <thead>
-                                <th>Producto</th>
-                                <th>Cantidad</th>
-                            </thead>
-                        </table>
-                        <tr>
-                            <!-- Iteracion lista de productos -->
-                            <td *>
-
-                            </td>
-                            <!-- Registro cantidad -->
-                            <td>
-                                <input type="number">
-                            </td>
-                        </tr>
+                        <p>Especifique la cantidad a vender:</p>
+                        <input type="number">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar compra</button>
+                        <button type="submit" class="btn btn-primary">Confirmar</button>
                     </div>
                 </div>
             </div>
