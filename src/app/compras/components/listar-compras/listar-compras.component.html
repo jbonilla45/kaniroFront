@@ -2,22 +2,33 @@
     <section class="col-12 justify-content-center" style="text-align: center">
 
         <div class="row justify-content-center mt-3">
+
             <div class="col-md-3">
                 <div class=" col-md-3card text-center info-amount-items text-white mb-3 mt-3">
                     <div class="card-body">
                         <h3>Total Registros</h3>
-                        <h4 class="display-4">
+                        <h4 class="display-5">
                             <i class="fas fa-cash-register"></i> {{listaCompras.length}}
                         </h4>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class=" col-md-3card text-center info-amount-items text-white mb-3 mt-3">
                     <div class="card-body">
                         <h3>Total Compras</h3>
-                        <h4 class="display-4">
-                            <i class="fas fa-money-bill-wave"></i> {{total | currency: 'USD'}}
+                        <h4 class="display-5">
+                            <i class="fas fa-money-bill-wave"></i> {{sumCompras | currency:'USD':'symbol':'4.0-0'}}
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class=" col-md-3card text-center info-amount-items text-white mb-3 mt-3">
+                    <div class="card-body">
+                        <h3>Compra mas Recurrente</h3>
+                        <h4 class="display-5">
+                            {{recData | titlecase}}
                         </h4>
                     </div>
                 </div>
